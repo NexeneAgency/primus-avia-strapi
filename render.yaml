@@ -30,5 +30,5 @@ services:
 
 databases:
   - name: primus-avia-strapi-db
-    plan: Free
+    plan: Basic-256mb
     region: frankfurt
