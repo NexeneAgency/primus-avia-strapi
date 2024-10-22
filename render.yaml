@@ -29,4 +29,4 @@ services:
 
 databases:
   - name: strapi
-    plan: standard
+    plan: basic
