@@ -7,6 +7,7 @@ services:
     startCommand: yarn start
     healthCheckPath: /_health
     autoDeploy: false
+    region: frankfurt
     disk:
       name: primus-avia-strapi-uploads
       mountPath: /opt/render/project/src/public/uploads
@@ -26,8 +27,10 @@ services:
         generateValue: true
       - key: APP_KEYS
         generateValue: true
+      - key: PORT
+        value: 3000
 
 databases:
   - name: primus-avia-strapi-db
-    plan: Basic-256mb
+    plan: starter
     region: frankfurt
