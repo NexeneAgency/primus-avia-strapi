@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: strapi
+    name: primus-avia-strapi
     env: node
     plan: starter
     buildCommand: yarn install && yarn build
@@ -8,9 +8,10 @@ services:
     healthCheckPath: /_health
     autoDeploy: false
     disk:
-      name: strapi-uploads
+      name: primus-avia-strapi-uploads
       mountPath: /opt/render/project/src/public/uploads
       sizeGB: 1
+      region: frankfurt
     envVars:
       - key: NODE_VERSION
         value: ~20.10.0
@@ -18,7 +19,7 @@ services:
         value: production
       - key: DATABASE_URL
         fromDatabase:
-          name: strapi
+          name: primus-avia-strapi-db
           property: connectionString
       - key: JWT_SECRET
         generateValue: true
@@ -28,5 +29,6 @@ services:
         generateValue: true
 
 databases:
-  - name: strapi
-    plan: Basic-256mb
+  - name: primus-avia-strapi-db
+    plan: Free
+    region: frankfurt
